@@ -7,7 +7,7 @@ public class Solution {
         {
             int area = Math.Min(height[left], height[right]) * Math.Abs(left - right);
             if (max < area) max = area;
-            if (height[left] <= height[right])
+            if (height[left] < height[right])
             {
                 left++;
             }
