@@ -12,7 +12,7 @@ public class Solution {
             }
             n = sum;
             count++;
-            if (count >= 100) return false;
+            if (count >= 20) return false;
         }
         return true;
     }
