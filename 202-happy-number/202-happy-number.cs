@@ -1,6 +1,7 @@
 public class Solution {
     public bool IsHappy(int n) {
         int count = 0;
+        Dictionary<int,int> keyValue=new();
         while (n > 1)
         {
             int sum = 0;
@@ -11,8 +12,8 @@ public class Solution {
                 n2 /= 10;
             }
             n = sum;
-            count++;
-            if (count >= 20) return false;
+            if(keyValue.ContainsKey(n))return false;
+            keyValue.Add(n,count);
         }
         return true;
     }
