@@ -1,5 +1,5 @@
 public class Solution {
-    public int[] NextGreaterElement(int[] nums1, int[] nums2) {List<int> result = new();
+    public int[] NextGreaterElement(int[] nums1, int[] nums2) {
        Stack<int> stack = new();
         Dictionary<int, int> dict = new();
         foreach (int num in nums2)
