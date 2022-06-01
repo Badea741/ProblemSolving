@@ -7,10 +7,11 @@ public class Solution {
         }
         foreach(char c in t){
             arr2[c]++;
-        }
-        foreach(char c in t){
             if(arr1[c]<arr2[c])return c;
         }
+        // foreach(char c in t){
+        //     if(arr1[c]<arr2[c])return c;
+        // }
         return 'a';
     }
 }
