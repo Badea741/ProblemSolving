@@ -11,15 +11,14 @@
  */
 public class Solution {
     public int GetDecimalValue(ListNode head) {
-      StringBuilder builder = new();
-
+        int ans=0;
         ListNode current = head;
         while (current != null)
         {
-            builder.Append(current.val);
-            current = current.next;
+            ans=ans<<1|current.val;
+            current=current.next;
         }
-        int ans = Convert.ToInt32(builder.ToString(),2);
+        // int ans = Convert.ToInt32(builder.ToString(),2);
         return ans;
 
         
