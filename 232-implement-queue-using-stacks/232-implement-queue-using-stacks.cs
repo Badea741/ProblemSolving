@@ -12,30 +12,29 @@ public class MyQueue {
     }
     
     public int Pop() {
-        while(stack1.Count!=1){
+        if(stack2.Count==0)
+        while(stack1.Count!=0){
             stack2.Push(stack1.Pop());
         }
-        dynamic returnValue=stack1.Pop();
-        while(stack2.Count!=0){
-            stack1.Push(stack2.Pop());
-        }
+        dynamic returnValue=stack2.Pop();
+     
         return returnValue;
         
     }
     
     public int Peek() {
-        while(stack1.Count!=1){
+                if(stack2.Count==0)
+
+        while(stack1.Count!=0){
             stack2.Push(stack1.Pop());
         }
-        dynamic returnValue=stack1.Peek();
-        while(stack2.Count!=0){
-            stack1.Push(stack2.Pop());
-        }
+        dynamic returnValue=stack2.Peek();
+     
         return returnValue;
     }
     
     public bool Empty() {
-        return stack1.Count==0;
+        return stack2.Count==0&&stack1.Count==0;
     }
 }
 
