@@ -4,13 +4,12 @@ public class Solution {
         for(int i =0;i<nums.Length;i++){
             if(!dict.ContainsKey(nums[i])){
                 dict[nums[i]]=1;
-                nums[i]=1;
                 continue;
             }
-            nums[i]=2;
+            dict[nums[i]]++;
         }
-        foreach(int i in nums){
-            if(i>=2)return true;
+        foreach(var i in dict){
+            if(i.Value>=2)return true;
         }
         return false;
     }
