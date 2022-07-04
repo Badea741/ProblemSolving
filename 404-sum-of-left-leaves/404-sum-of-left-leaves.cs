@@ -20,9 +20,10 @@ public class Solution {
         while(stack.Count!=0){
             root = stack.Pop();
             if(root.left!=null){
-                    stack.Push(root.left);
                     if(root.left.left==null&&root.left.right==null)
                         sum+=root.left.val;
+                else                     stack.Push(root.left);
+
                 }
             if(root.right!=null){
                     stack.Push(root.right);
