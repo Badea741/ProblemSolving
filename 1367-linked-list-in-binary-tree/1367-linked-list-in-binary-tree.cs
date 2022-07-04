@@ -24,26 +24,24 @@
  */
 public class Solution {
     public bool IsSubPath(ListNode head, TreeNode root) {
-       Stack<KeyValuePair<TreeNode, string>> stack = new();
+       Stack<(TreeNode,string)> stack = new();
         ListNode curr = head;
-        StringBuilder builder = new();
-        while (curr != null)
-        {
+        StringBuilder builder=new();
+        while(curr!=null){
             builder.Append(curr.val);
-            curr = curr.next;
+            curr=curr.next;
         }
-        string linkedListString = builder.ToString();
-        string path = root.val.ToString();
-        stack.Push(new(root, path));
-        while (stack.Count != 0)
-        {
-            (root, path) = stack.Pop();
-            if (path.Contains(linkedListString)) return true;
-            if (root.right != null)
-                stack.Push(new(root.right, path + root.right.val.ToString()));
-            if (root.left != null)
-                stack.Push(new(root.left, path + root.left.val.ToString()));
+        stack.Push((root,root.val.ToString()));
+        string path=string.Empty;
+        while(stack.Count!=0){
+            (root,path)=stack.Pop();
+            if(path.Contains(builder.ToString()))return true;
+
+            if(root.left!=null)stack.Push((root.left,path+root.left.val.ToString()));
+            if(root.right!=null)stack.Push((root.right,path+root.right.val.ToString()));
         }
         return false;
+            
+        
     }
 }
