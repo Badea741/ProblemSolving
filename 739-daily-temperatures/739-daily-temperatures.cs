@@ -2,20 +2,20 @@ public class Solution {
     public int[] DailyTemperatures(int[] temperatures) {
        int n = temperatures.Length;
         int[] result = new int[n];
-        LinkedList<(int, int)> deque = new();
+        Stack<(int, int)> stack = new();
         for (int i = 0; i < n; i++)
         {
-            while (deque.Count != 0 && deque.Last.Value.Item1 < temperatures[i])
+            while (stack.Count != 0 && stack.Peek().Item1 < temperatures[i])
             {
-                result[deque.Last.Value.Item2] = i - deque.Last.Value.Item2;
-                deque.RemoveLast();
+                result[stack.Peek().Item2] = i - stack.Peek().Item2;
+                stack.Pop();
             }
-            deque.AddLast(new LinkedListNode<(int, int)>((temperatures[i], i)));
+            stack.Push((temperatures[i], i));
         }
-        while (deque.Count != 0)
+        while (stack.Count != 0)
         {
-            result[deque.Last.Value.Item2] = 0;
-            deque.RemoveLast();
+            result[stack.Peek().Item2] = 0;
+            stack.Pop();
         }
 
         return result;
