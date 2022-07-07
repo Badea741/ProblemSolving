@@ -9,6 +9,13 @@ public class Solution {
     //     return -1;
     // }
     public int StrStr(string haystack, string needle) {
-       return haystack.IndexOf(needle);
+int n = haystack.Length, k = needle.Length;
+   for(int i =0;i<n-k+1;i++)
+       for(int j =0;j<k;j++){
+           if(haystack[i+j]!=needle[j])
+               break;
+           if(j>=k-1)return i;
+       }
+        return -1;
     }
 }
